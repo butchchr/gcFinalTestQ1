@@ -1,7 +1,28 @@
-﻿@{
+﻿@using FinalTestQ1.Controllers
+@model FinalTestQ1.Models.Number
+
+@{
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+<form action="@Url.Action(nameof(HomeController.About))" method="post">
+
+    @Html.LabelFor(m => m.FirstNum) Enter a number from 1 - 1000
+    <div>
+        @Html.EditorFor(m => m.FirstNum)
+        @Html.ValidationMessageFor(m => m.FirstNum)
+    </div>
+
+    @Html.LabelFor(m => m.SecondNum) Enter a second number from 1 - 1000
+    <div>
+        @Html.EditorFor(m => m.SecondNum)
+        @Html.ValidationMessageFor(m => m.SecondNum)
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit &raquo;</button>
+
+</form>

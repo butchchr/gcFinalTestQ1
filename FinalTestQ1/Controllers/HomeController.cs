@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FinalTestQ1.Models;
 
 namespace FinalTestQ1.Controllers
 {
@@ -25,6 +26,15 @@ namespace FinalTestQ1.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Result(Number model)
+        {
+            ViewBag.Message = "Sum Result";
+            model.Sum = model.FirstNum + model.SecondNum;
+
+            return View(model);
         }
     }
 }
